@@ -23,7 +23,11 @@ const styles = {
         display: "flex",
         width: "100%",
         justifyContent: "space-between",
-        color: "white"
+        alignItems: "center",
+        color: "white",
+        "& a": {
+            color: "white",
+        }
     },
     palettes: {
         boxSizing: "border-box",
@@ -45,10 +49,11 @@ class PaletteList extends Component {
                 <div className={classes.container}>
                     <nav className={classes.nav}>
                         <h1>React Colors</h1>
+                        <Link to="/palette/new">Create Palette</Link>
                     </nav>
                     <div className={classes.palettes}>
                         {palettes.map(palette => (
-                            <MiniPalette {...palette} handleClick={() => this.goToPalette(palette.id)}/>
+                            <MiniPalette {...palette} handleClick={() => this.goToPalette(palette.id)} />
                         ))}
                     </div>
                 </div>
