@@ -11,6 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Button } from '@material-ui/core';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import sizes from "./sizes";
+
 
 const drawerWidth = 400;
 const styles = theme => ({
@@ -44,9 +46,16 @@ const styles = theme => ({
     },
     navBtns: {
         marginRight: "1rem",
+        [sizes.down("xs")]: {
+            marginRight: "0.5rem",
+        }
     },
     button: {
         margin: "0 0.5rem",
+        [sizes.down("xs")]: {
+            margin: "0 0.2rem",
+            padding: "0.2rem"
+        }
     },
     link: {
         textDecoration: "none"

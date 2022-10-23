@@ -6,8 +6,65 @@ import { IconButton, MenuItem } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import 'rc-slider/assets/index.css';
+import { withStyles } from '@material-ui/styles';
 import './Navbar.css';
+import sizes from "./sizes";
 
+
+const styles = {
+    Navbar: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        height: "6vh",
+    },
+    logo: {
+        marginRight: "15px",
+        padding: "0 13px",
+        fontSize: "22px",
+        backgroundColor: "#eceff1",
+        fontFamily: "Roboto",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        "& a": {
+            textDecoration: "none",
+            color: "black"
+        },
+        [sizes.down("sm")]: {
+            display: "none"
+        }
+    },
+    slider: {
+        width: "340px",
+        margin: "0 10px",
+        display: "inline-block",
+        "& .rc-slider-track": {
+            backgroundColor: "transparent"
+        },
+        "& .rc-slider-rail": {
+            height: "8px"
+        },
+        "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus,.rc-slider-handle:hover": {
+            backgroundColor: "green",
+            outline: "none",
+            border: "2px solid green",
+            boxShadow: "none",
+            width: "13px",
+            height: "13px",
+            marginLeft: "-7px",
+            marginTop: "-3px"
+        },
+        [sizes.down("sm")]: {
+            width: "150px"
+        }
+    },
+
+    selectContainer: {
+        marginLeft: "auto",
+        marginRight: "1rem"
+    }
+}
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -23,16 +80,16 @@ class Navbar extends Component {
         this.setState({ open: false })
     }
     render() {
-        const { level, changeLevel, showingAllColors } = this.props;
+        const { level, changeLevel, showingAllColors, classes } = this.props;
         const { format } = this.state;
         return (
-            <header className='Navbar'>
-                <div className='logo'>
+            <header className={classes.Navbar}>
+                <div className={classes.logo}>
                     <Link to="/">reactcolorpicker</Link>
                 </div>
-                {showingAllColors && (<div className='slider-container'>
+                {showingAllColors && (<div>
                     <span>Level: {level}</span>
-                    <div className="slider">
+                    <div className={classes.slider}>
                         <Slider
                             defaultValue={level}
                             min={100}
@@ -43,7 +100,7 @@ class Navbar extends Component {
                     </div>
                 </div>
                 )}
-                <div className='select-container'>
+                <div className={classes.selectContainer}>
                     <Select value={format} onChange={this.handleFormatChange}>
                         <MenuItem value="hex">HEX - #ffffff</MenuItem>
                         <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
@@ -72,4 +129,4 @@ class Navbar extends Component {
         )
     }
 }
-export default Navbar;
+export default withStyles(styles)(Navbar);
