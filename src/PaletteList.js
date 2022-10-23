@@ -3,6 +3,7 @@ import MiniPalette from './MiniPalette';
 import { Link } from 'react-router-dom';
 import { withStyles } from "@material-ui/styles";
 import sizes from "./sizes";
+import bg from "./bg.svg";
 
 
 const styles = {
@@ -12,10 +13,19 @@ const styles = {
         height: "100vh",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
+        /* background by SVGBackgrounds.com */
+        backgroundImage: `url(${bg})`,
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        overflow: "scroll"
+
+    },
+    heading: {
+        fontSize: "2rem"
     },
     container: {
-        width: "50%",
+        minidth: "50%",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
@@ -63,7 +73,7 @@ class PaletteList extends Component {
             <div className={classes.root}>
                 <div className={classes.container}>
                     <nav className={classes.nav}>
-                        <h1>React Colors</h1>
+                        <h1 className={classes.heading}>React Colors</h1>
                         <Link to="/palette/new">Create Palette</Link>
                     </nav>
                     <div className={classes.palettes}>
