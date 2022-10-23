@@ -115,7 +115,7 @@ class NewPaletteForm extends Component {
     };
     handleSubmit(newPalette) {
         newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
-        newPalette.colors = this.state.colors;       
+        newPalette.colors = this.state.colors;
         this.props.savePalette(newPalette);
         this.props.history.push("/");
     }
@@ -186,6 +186,7 @@ class NewPaletteForm extends Component {
                         removeColor={this.removeColor}
                         axis="xy"
                         onSortEnd={this.onSortEnd}
+                        distance={20}
                     />
                 </main>
             </div>
