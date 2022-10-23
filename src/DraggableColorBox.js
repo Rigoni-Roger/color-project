@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/styles";
 import { SortableElement } from "react-sortable-hoc";
 import DeleteIcon from '@material-ui/icons/Delete';
 import sizes from "./sizes";
+import chroma from 'chroma-js';
 
 
 const styles = {
@@ -32,12 +33,13 @@ const styles = {
         },
     },
     boxContent: {
+        color: props =>
+            chroma(props.color).luminance() <= 0.08 ? "white" : "black",
         position: "absolute",
         width: "100%",
         left: "0px",
         bottom: "0px",
         padding: "10px",
-        color: "rgba(0, 0, 0, 0.5)",
         letterSpacing: "1px",
         textTransform: "uppercase",
         fontSize: "12px",
