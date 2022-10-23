@@ -46,7 +46,7 @@ const styles = {
         fontSize: "2rem"
     },
     container: {
-        minidth: "50%",
+        width: "50%",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
