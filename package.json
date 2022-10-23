@@ -12,6 +12,7 @@
     "array-move": "^4.0.0",
     "bootstrap": "^4.3.1",
     "chroma-js": "^2.4.2",
+    "emoji-mart": "^3.0.1",
     "jquery": "^3.6.1",
     "popper": "^1.0.1",
     "rc-slider": "^10.0.1",
