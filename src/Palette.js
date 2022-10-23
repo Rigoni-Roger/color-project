@@ -6,6 +6,7 @@ import withStyles from "@material-ui/styles/withStyles";
 import './Palette.css';
 
 const styles = {
+
   palette: {
     height: "100vh",
     display: "flex",
